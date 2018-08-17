@@ -1,0 +1,136 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Warsaw
+  # Customization file
+  customize: !include customize.yaml
+
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://192.168.0.110:3218/
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret api_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+#conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+group: !include_dir_merge_named groups_views
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+# map:
+
+# Track the sun
+sun:
+
+#Home Kit
+homekit:
+
+# Weather prediction
+sensor:
+  - platform: yr
+  - platform: wunderground
+    friendly_name: Costa Wind
+    api_key: !secret api_wunderground
+    pws_id: !secret id_wunderground
+    monitored_conditions:
+      - location
+      - feelslike_c
+      - temp_high_1d_c
+      - temp_c
+      - temp_low_1d_c
+      - temp_low_2d_c
+      - precip_1d
+      - wind_kph
+      - weather_2d_metric
+      - UV
+  - platform: rest
+    name: Airly
+    resource: https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=50.078965&longitude=19.961582&maxDistance=1000
+    headers:
+      apikey: !secret api_airly
+    value_template: "{{ value_json['airQualityIndex'] }} {{ value_json['pm25'] }} {{ value_json['pm10'] }}"
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+switch:
+  platform: command_line
+  switches:
+    arest_pin_four:
+      command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
+      command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
+      command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
+      value_template: '{{ value == "1" }}'
+      friendly_name: Kitchen Lightswitch
+
+device_tracker:
+  - platform: bluetooth_tracker
+  
+notify:
+  - name: pushbullet
+    platform: pushbullet
+    api_key: !secret api_pushbullet
+
+automation:
+  alias: Home detection
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone_arcanus
+    to: 'home'
+  action:
+    service: notify.pushbullet
+    data:
+      title: "Witaj w domu Andrzej"
+      message: "Testujemy"
+
+script:
+  test_pushbullet:
+    alias: 'test_pushbullet'
+    sequence:
+      - service: notify.pushbullet
+        data:
+          title: test
+          message: test
+
