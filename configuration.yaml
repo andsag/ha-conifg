@@ -49,6 +49,7 @@ discovery:
 # Enables support for tracking state changes over time
 history:
 
+script: !include scripts.yaml
 group: !include_dir_merge_named groups_views
 
 # View all events in a logbook
@@ -124,13 +125,4 @@ automation:
     data:
       title: "Witaj w domu Andrzej"
       message: "Testujemy"
-
-script:
-  test_pushbullet:
-    alias: 'test_pushbullet'
-    sequence:
-      - service: notify.pushbullet
-        data:
-          title: test
-          message: test
 

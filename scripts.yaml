@@ -1,0 +1,16 @@
+  test_pushbullet:
+    alias: 'test_pushbullet'
+    sequence:
+      - service: notify.pushbullet
+        data:
+          title: test
+          message: test
+  
+  test_audio:
+    alias: 'radio'
+    sequence:
+      - service: media_player.play_media
+        entity_id: media_player.mibox3
+        data:
+          media_content_id: https://zt02.cdn.eurozet.pl/zet-tun.mp3
+          media_content_type: audio/mp4
