@@ -49,6 +49,7 @@ discovery:
 # Enables support for tracking state changes over time
 history:
 
+automation: !include automations.yaml
 script: !include scripts.yaml
 group: !include_dir_merge_named groups_views
 
@@ -113,16 +114,4 @@ notify:
   - name: pushbullet
     platform: pushbullet
     api_key: !secret api_pushbullet
-
-automation:
-  alias: Home detection
-  trigger:
-    platform: state
-    entity_id: device_tracker.iphone_arcanus
-    to: 'home'
-  action:
-    service: notify.pushbullet
-    data:
-      title: "Witaj w domu Andrzej"
-      message: "Testujemy"
 

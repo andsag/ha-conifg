@@ -1,1 +1,10 @@
-[]
+  alias: Home detection
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone_arcanus
+    to: 'home'
+  action:
+    service: notify.pushbullet
+    data:
+      title: "Witaj w domu Andrzej"
+      message: "Testujemy"
