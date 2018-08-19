@@ -1,0 +1,6 @@
+  - platform: rest
+    name: Airly
+    resource: https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=50.078965&longitude=19.961582&maxDistance=1000
+    headers:
+      apikey: !secret api_airly
+    value_template: "{{ value_json['airQualityIndex'] }} {{ value_json['pm25'] }} {{ value_json['pm10'] }}"

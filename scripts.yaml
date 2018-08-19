@@ -5,6 +5,14 @@
         data:
           title: test
           message: test
+          
+  test_gmail:
+    alias: 'test_gmail'
+    sequence:
+      service: notify.gmail
+      data:
+        message: "Arm security system."
+        title: "Security Reminder"
   
   test_audio:
     alias: 'radio'

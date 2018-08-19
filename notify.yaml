@@ -1,0 +1,16 @@
+  - name: pushbullet
+    platform: pushbullet
+    api_key: !secret api_pushbullet
+
+  - name: gmail
+    platform: smtp
+    server: smtp.gmail.com
+    port: 587
+    timeout: 15
+    sender: ha@gmail.com
+    encryption: starttls
+    username: !secret mail_username
+    password: !secret gmail_password
+    recipient:
+      - !secret mail
+    sender_name: My Home Assistant

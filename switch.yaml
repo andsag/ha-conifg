@@ -1,0 +1,8 @@
+  platform: command_line
+  switches:
+    arest_pin_four:
+      command_on: "/usr/bin/curl -X GET http://127.0.0.1:8123"
+      command_off: "/usr/bin/curl -X GET http://127.0.0.1:8123"
+      command_state: "/usr/bin/curl -X GET http://127.0.0.1:8123"
+      value_template: '{{ value == "1" }}'
+      friendly_name: Kitchen Lightswitch
