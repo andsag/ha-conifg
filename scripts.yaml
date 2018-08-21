@@ -14,11 +14,17 @@
         message: "Arm security system."
         title: "Security Reminder"
   
-  test_audio:
-    alias: 'radio'
+  radio_on:
+    alias: 'Turn on radio'
     sequence:
       - service: media_player.play_media
         entity_id: media_player.mibox3
         data:
           media_content_id: https://zt02.cdn.eurozet.pl/zet-tun.mp3
           media_content_type: audio/mp4
+
+  radio_off:
+    alias: 'Turn off radio'
+    sequence:
+      - service: media_player.turn_off
+        entity_id: media_player.mibox3

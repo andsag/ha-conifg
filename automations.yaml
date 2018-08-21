@@ -1,10 +1,39 @@
-  alias: Home detection
-  trigger:
-    platform: state
-    entity_id: device_tracker.iphone_arcanus
-    to: 'home'
-  action:
-    service: notify.pushbullet
-    data:
-      title: "Witaj w domu Andrzej"
-      message: "Testujemy"
+  - alias: Home detection
+    trigger:
+      platform: state
+      entity_id: device_tracker.iphone_arcanus
+      to: 'home'
+    action:
+      service: notify.pushbullet
+      data:
+        title: "Witaj w domu Andrzej"
+        message: "Testujemy"
+ 
+ #Turn off radio when I leave       
+  - alias: Turn off radio
+    trigger:
+      platform: state
+      entity_id: device_tracker.iphone_arcanus
+      to: 'away'
+    action:
+      service: media_player.turn_off
+      entity_id: media_player.mibox3
+      
+  - alias: Morning radio
+    trigger:
+      platform: time
+      at: '22:10:00'
+    condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    action:
+      service: media_player.play_media
+      entity_id: media_player.mibox3
+      data:
+        media_content_id: https://zt02.cdn.eurozet.pl/zet-tun.mp3
+        media_content_type: audio/mp4
