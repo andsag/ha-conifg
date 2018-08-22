@@ -1,6 +1,5 @@
   - platform: yr
     monitored_conditions:
-    - 'temperature'
     - 'humidity'
     - 'symbol'
   
@@ -19,5 +18,3 @@
     - 'cloud_cover'
 
   - platform: season
-  
-  - platform: moon

@@ -1,0 +1,5 @@
+  filter:
+    include_entities:
+      - switch.radio
+      - sensor.dark_sky_apparent_temperature
+      - sensor.dark_sky_precip_probability

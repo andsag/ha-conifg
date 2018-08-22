@@ -22,7 +22,7 @@
   - alias: Morning radio
     trigger:
       platform: time
-      at: '8:05:00'
+      at: '7:45:00'
     condition:
     - condition: time
       weekday:

@@ -11,7 +11,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Warsaw
   # Customization file
-  customize: !include customize.yaml
+  customize: !include_dir_merge_named customize
 
 panel_iframe:
   configurator:
@@ -56,6 +56,7 @@ notify: !include notify.yaml
 group: !include_dir_merge_named groups_views
 device_tracker: !include device_tracker.yaml
 switch: !include switch.yaml
+homekit: !include homekit.yaml
 
 # View all events in a logbook
 logbook:
@@ -65,9 +66,6 @@ logbook:
 
 # Track the sun
 sun:
-
-#Home Kit
-homekit:
 
 # Text to speech
 tts:

@@ -1,0 +1,70 @@
+###########################################
+# Weather Sensors
+###########################################
+
+###########################################
+# YR
+###########################################
+sensor.yr_temperature:
+  friendly_name: 'Outside'
+
+sensor.yr_humidity:
+  friendly_name: 'Humidity'
+
+sensor.yr_symbol:
+  friendly_name: 'Conditions'
+
+###########################################
+# Dark Sky
+###########################################
+sensor.dark_sky_apparent_temperature:
+  friendly_name: 'Feels Like'
+  icon: mdi:human-male-female
+
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: 'Low'
+  icon: mdi:temperature-celsius
+
+sensor.dark_sky_daily_low_temperature_1:
+  friendly_name: 'Low'
+  icon: mdi:temperature-celsius
+
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: 'High'
+  icon: mdi:temperature-celsius
+
+sensor.dark_sky_daily_high_temperature_1:
+  friendly_name: 'High'
+  icon: mdi:temperature-celsius
+
+sensor.air_pressure_template:
+  friendly_name: 'Air Pressure'
+  icon: mdi:gauge
+
+sensor.air_pressure_tomorrow_template:
+  friendly_name: 'Air Pressure'
+  icon: mdi:gauge
+
+sensor.dark_sky_cloud_coverage:
+  friendly_name: 'Cloud Coverage'
+  icon: mdi:weather-partlycloudy
+
+sensor.dark_sky_cloud_coverage_1:
+  friendly_name: 'Cloud Coverage'
+  icon: mdi:weather-partlycloudy
+
+sensor.dark_sky_precip_probability_template:
+  friendly_name: 'Chance of Precipitation'
+  icon: mdi:weather-rainy
+
+sensor.dark_sky_precip_probability_tomorrow_template:
+  friendly_name: 'Chance of Precipitation'
+  icon: mdi:weather-rainy
+
+sensor.dark_sky_wind_speed:
+  friendly_name: 'Wind Speed'
+  icon: mdi:weather-windy
+
+sensor.dark_sky_wind_speed_1:
+  friendly_name: 'Wind Speed'
+  icon: mdi:weather-windy

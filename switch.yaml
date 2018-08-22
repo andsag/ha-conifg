@@ -1,4 +1,8 @@
-  platform: command_line
+###########################################
+# Media Switches
+###########################################
+
+- platform: command_line
   switches:
     arest_pin_four:
       command_on: "/usr/bin/curl -X GET http://127.0.0.1:8123"
@@ -6,3 +10,17 @@
       command_state: "/usr/bin/curl -X GET http://127.0.0.1:8123"
       value_template: '{{ value == "1" }}'
       friendly_name: Kitchen Lightswitch
+        
+- platform: template
+  switches:
+    radio:
+      value_template: "{{is_state('media_player.mibox3', 'playing') }}"
+      turn_on:
+        service: media_player.play_media
+        entity_id: media_player.mibox3
+        data:
+          media_content_id: https://zt02.cdn.eurozet.pl/zet-tun.mp3
+          media_content_type: audio/mp4
+      turn_off:
+        service: media_player.turn_off
+        entity_id: media_player.mibox3
