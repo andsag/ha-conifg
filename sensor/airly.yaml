@@ -1,6 +1,28 @@
   - platform: rest
+    scan_interval: 120
     name: Airly
-    resource: https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=50.078965&longitude=19.961582&maxDistance=1000
+    resource: https://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984&maxDistanceKM=1
+    json_attributes:
+      - current.fromDateTime
+    value_template: '{{ value_json.value }}'
     headers:
       apikey: !secret api_airly
-    value_template: "{{ value_json['airQualityIndex'] }} {{ value_json['pm25'] }} {{ value_json['pm10'] }}"
+      
+  - platform: rest
+    scan_interval: 120
+    name: IP
+    resource: http://ip.jsontest.com/ 
+    value_template: '{{ value_json.ip }}'
+
+
+  - platform: template
+    sensors:
+      airly_aqi:
+        unit_of_measurement: "units"
+        value_template: "{{ states.sensor.airly.state.split(' ')[0] | round(0) }}"
+      airly_pm25:
+        unit_of_measurement: "μg/m3"
+        value_template: "{{ states.sensor.airly.state.split(' ')[1] | round(0) }}"
+      airly_pm10:
+        unit_of_measurement: "μg/m3"
+        value_template: "{{ states.sensor.airly.state.split(' ')[2] | round(0) }}"

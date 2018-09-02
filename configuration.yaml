@@ -43,6 +43,11 @@ updater:
 # Discover some devices automatically
 discovery:
 
+mqtt:
+  broker: !secret mgtt_broker
+  username: !secret mgtt_username
+  password: !secret mgtt_password
+  
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
 
@@ -54,7 +59,7 @@ script: !include scripts.yaml
 sensor: !include_dir_merge_list sensor
 notify: !include notify.yaml
 group: !include_dir_merge_named groups_views
-device_tracker: !include device_tracker.yaml
+#device_tracker: !include device_tracker.yaml
 switch: !include switch.yaml
 homekit: !include homekit.yaml
 
