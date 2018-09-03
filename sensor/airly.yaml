@@ -2,9 +2,7 @@
     scan_interval: 120
     name: Airly
     resource: https://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984&maxDistanceKM=1
-    json_attributes:
-      - current.fromDateTime
-    value_template: '{{ value_json.value }}'
+    value_template: '{{ value_json["current"]["indexes"][0]["value"] }}'
     headers:
       apikey: !secret api_airly
       
@@ -15,14 +13,8 @@
     value_template: '{{ value_json.ip }}'
 
 
-  - platform: template
-    sensors:
-      airly_aqi:
-        unit_of_measurement: "units"
-        value_template: "{{ states.sensor.airly.state.split(' ')[0] | round(0) }}"
-      airly_pm25:
-        unit_of_measurement: "μg/m3"
-        value_template: "{{ states.sensor.airly.state.split(' ')[1] | round(0) }}"
-      airly_pm10:
-        unit_of_measurement: "μg/m3"
-        value_template: "{{ states.sensor.airly.state.split(' ')[2] | round(0) }}"
+  - platform: file
+    name: AirlyTemp
+    file_path: /home/homeassistant/.homeassistant/airly.json
+    value_template: '{{ value_json["current"]["indexes"]["value"] }}'
+    unit_of_measurement: 'PM10'

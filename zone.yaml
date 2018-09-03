@@ -1,0 +1,11 @@
+  - name: Home
+    latitude: !secret owntracks_latitude_home
+    longitude: !secret owntracks_longitude_home
+    radius: 100
+    icon: mdi:house
+    
+  - name: Work
+    latitude: !secret owntracks_latitude_work
+    longitude: !secret owntracks_longitude_work
+    radius: 150
+    icon: mdi:office-building

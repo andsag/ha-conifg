@@ -13,7 +13,6 @@ Todays_Forecast:
     - sensor.dark_sky_wind_speed
     - sensor.dark_sky_pressure
     - sensor.yr_humidity
-    - sensor.airly
 
 Tomorrows_Forecast:
   name: "Tomorrow's Forecast"

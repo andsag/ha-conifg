@@ -9,15 +9,61 @@
         title: "Witaj w domu Andrzej"
         message: "Testujemy"
  
- #Turn off radio when I leave       
-  - alias: Turn off radio
+  - alias: Turn on Listwa Morning
     trigger:
-      platform: state
-      entity_id: device_tracker.iphone_arcanus
-      to: 'away'
+      platform: time
+      at: '7:30:00'
     action:
-      service: media_player.turn_off
-      entity_id: media_player.mibox3
+      service: mqtt.publish
+      data:
+        topic: /sonoff/listwa/switch/cmd
+        payload: "on"
+    
+  - alias: Turn off Listwa Morning
+    trigger:
+      platform: time
+      at: '11:00:00'
+    condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    action:
+      service: mqtt.publish
+      data:
+        topic: /sonoff/listwa/switch/cmd
+        payload: "off"
+
+  - alias: Turn on Listwa Afternoon
+    trigger:
+      platform: time
+      at: '17:30:00'
+    condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    action:
+      service: mqtt.publish
+      data:
+        topic: /sonoff/listwa/switch/cmd
+        payload: "on"
+        
+  - alias: Turn off Listwa Afternoon
+    trigger:
+      platform: time
+      at: '01:00:00'
+    action:
+      service: mqtt.publish
+      data:
+        topic: /sonoff/listwa/switch/cmd
+        payload: "off"
       
   - alias: Morning radio
     trigger:
