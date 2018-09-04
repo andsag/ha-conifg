@@ -5,21 +5,12 @@
 ###########################################
 # YR
 ###########################################
-sensor.yr_temperature:
-  friendly_name: 'Outside'
-
-sensor.yr_humidity:
-  friendly_name: 'Humidity'
-
 sensor.yr_symbol:
   friendly_name: 'Conditions'
 
 ###########################################
 # Dark Sky
 ###########################################
-sensor.dark_sky_apparent_temperature:
-  friendly_name: 'Feels Like'
-  icon: mdi:human-male-female
 
 sensor.dark_sky_daily_low_temperature:
   friendly_name: 'Low'
@@ -36,14 +27,6 @@ sensor.dark_sky_daily_high_temperature:
 sensor.dark_sky_daily_high_temperature_1:
   friendly_name: 'High'
   icon: mdi:temperature-celsius
-
-sensor.air_pressure_template:
-  friendly_name: 'Air Pressure'
-  icon: mdi:gauge
-
-sensor.air_pressure_tomorrow_template:
-  friendly_name: 'Air Pressure'
-  icon: mdi:gauge
 
 sensor.dark_sky_cloud_coverage:
   friendly_name: 'Cloud Coverage'

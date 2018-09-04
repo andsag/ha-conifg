@@ -4,15 +4,12 @@
 Todays_Forecast:
   name: "Today's Forecast"
   entities:
-    - sensor.dark_sky_apparent_temperature
     - sensor.dark_sky_daily_low_temperature
     - sensor.dark_sky_daily_high_temperature
     - sensor.dark_sky_cloud_coverage
     - sensor.dark_sky_precip
     - sensor.dark_sky_precip_probability
     - sensor.dark_sky_wind_speed
-    - sensor.dark_sky_pressure
-    - sensor.yr_humidity
 
 Tomorrows_Forecast:
   name: "Tomorrow's Forecast"
@@ -23,7 +20,6 @@ Tomorrows_Forecast:
     - sensor.dark_sky_precip_1
     - sensor.dark_sky_precip_probability_1
     - sensor.dark_sky_wind_speed_1
-    - sensor.dark_sky_pressure_1
     
 Season:
   name: "Season"

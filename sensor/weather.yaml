@@ -1,6 +1,5 @@
   - platform: yr
     monitored_conditions:
-    - 'humidity'
     - 'symbol'
   
   - platform: darksky
@@ -12,8 +11,6 @@
     - 'precip_probability'
     - 'temperature_min'
     - 'temperature_max'
-    - 'apparent_temperature'
-    - 'pressure'
     - 'wind_speed'
     - 'cloud_cover'
 

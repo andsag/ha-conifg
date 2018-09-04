@@ -1,0 +1,21 @@
+sensor.airly:
+  hidden: true
+
+sensor.airly_pm25:
+  friendly_name: 'PM2.5'
+  icon: mdi:thought-bubble-outline
+sensor.airly_pm10:
+  friendly_name: 'PM10'
+  icon: mdi:thought-bubble-outline
+sensor.airly_pressure:
+  friendly_name: 'Ciśnienie'
+  icon: mdi:gauge
+sensor.airly_humidity:
+  friendly_name: 'Wilgotność'
+  icon: mdi:water-percent
+sensor.airly_temperature:
+  friendly_name: 'Temperatura'
+  icon: mdi:temperature-celsius
+sensor.airly_quality:
+  friendly_name: 'Jakość powietrza'
+  icon: mdi:shield-outline

@@ -1,0 +1,9 @@
+Airly:
+  name: "Airly Sensors"
+  entities:
+    - sensor.airly_pm25
+    - sensor.airly_pm10
+    - sensor.airly_quality
+    - sensor.airly_temperature
+    - sensor.airly_humidity
+    - sensor.airly_pressure
