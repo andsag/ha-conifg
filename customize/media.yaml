@@ -1,3 +1,2 @@
-switch.radio:
-  friendly_name: Radio
-  icon: mdi:speaker-wireless
+media_player.asmibox3cast:
+  hidden: true
