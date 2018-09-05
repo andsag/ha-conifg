@@ -78,8 +78,12 @@
         - thu
         - fri
     action:
-      service: media_player.play_media
-      entity_id: media_player.mibox3
-      data:
-        media_content_id: https://zt02.cdn.eurozet.pl/zet-tun.mp3
-        media_content_type: audio/mp4
+      - service: media_player.play_media
+        entity_id: media_player.mibox3
+        data:
+          media_content_id: https://zt02.cdn.eurozet.pl/zet-tun.mp3
+          media_content_type: audio/mp4
+      - service: media_player.volume_set
+        entity_id: media_player.mibox3
+        data_template:
+          volume_level: '{{ 0.2 }}'
