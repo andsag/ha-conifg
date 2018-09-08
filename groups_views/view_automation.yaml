@@ -1,0 +1,9 @@
+###########################################
+# Automation Tab
+###########################################
+Automation:
+#  icon: mdi:auto-fix
+  view: yes
+  name: Automation
+  entities:
+    - group.misc_automation

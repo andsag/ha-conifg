@@ -4,10 +4,9 @@
       entity_id: device_tracker.iphone_asagan
       to: 'home'
     action:
-      service: notify.pushbullet
+      service: notify.ios_iphone_arcanus
       data:
-        title: "Witaj w domu Andrzej"
-        message: "Testujemy"
+        message: "Witaj"
  
   - alias: Turn on Listwa Morning
     trigger:

@@ -1,0 +1,9 @@
+Misc Automation:
+  name: "Misc Automation"
+  entities:
+    - automation.home_detection
+    - automation.morning_radio
+    - automation.turn_off_listwa_afternoon
+    - automation.turn_off_listwa_morning
+    - automation.turn_on_listwa_afternoon
+    - automation.turn_on_listwa_morning

@@ -22,3 +22,10 @@
       data:
         message: "Arm security system."
         title: "Security Reminder"
+        
+  test_push:
+    alias: 'test_push'
+    sequence:
+      - service: notify.ios_iphone_arcanus
+        data:
+          message: 'This is a test!'

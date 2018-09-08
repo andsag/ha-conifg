@@ -14,3 +14,7 @@
     recipient:
       - !secret mail
     sender_name: My Home Assistant
+    
+  - name: iOSApp
+    platform: ios
+    target: !secret ios_target
