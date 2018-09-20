@@ -4,7 +4,7 @@
       service: media_player.volume_set
       entity_id: media_player.mibox3
       data_template:
-         volume_level: '{{ 0.2 }}'
+         volume_level: '{{ 0.4 }}'
 #        volume_level: '{{ states.media_player.YourPlayer.attributes.volume_level + 5 }}'
              
   test_pushbullet:
@@ -29,3 +29,10 @@
       - service: notify.ios_iphone_arcanus
         data:
           message: 'This is a test!'
+
+  weather:
+    alias: 'Weather Report'
+    sequence:
+      - service: notify.ios_iphone_arcanus
+        data:
+          message: "Outside is {{ states('sensor.airly_temperature') }} degrees."

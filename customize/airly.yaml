@@ -17,5 +17,5 @@ sensor.airly_temperature:
   friendly_name: 'Temperatura'
   icon: mdi:temperature-celsius
 sensor.airly_quality:
-  friendly_name: 'Jakość powietrza'
+  friendly_name: 'Zanieczyszczenie powietrza'
   icon: mdi:shield-outline
