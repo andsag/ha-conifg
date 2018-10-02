@@ -12,15 +12,11 @@
     trigger:
       platform: numeric_state
       entity_id: sensor.dark_sky_precip_probability
-      above: '40'
-    condition:
-    - condition: time
-      before: '8:00:00'
-      after: '8:00:01'
+      above: '20'
     action:
       service: notify.ios_iphone_arcanus
       data:
-        message: "Uwaga: {{ states('sensor.dark_sky_precip_probability') }} szans na {{ states('sensor.dark_sky_precip') }}"
+        message: "Be aware: {{ states('sensor.dark_sky_precip_probability') }} percent chance of {{ states('sensor.dark_sky_precip') }}"
  
   - alias: Turn on Listwa Morning
     trigger:
