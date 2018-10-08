@@ -9,3 +9,15 @@
     longitude: !secret owntracks_longitude_work
     radius: 150
     icon: mdi:office-building
+    
+  - name: Zielonki
+    latitude: !secret owntracks_latitude_zielonki
+    longitude: !secret owntracks_longitude_zielonki
+    radius: 150
+    icon: mdi:home-assistant
+    
+  - name: Ciecina
+    latitude: !secret owntracks_latitude_ciecina
+    longitude: !secret owntracks_longitude_ciecina
+    radius: 150
+    icon: mdi:home-minus
