@@ -35,3 +35,13 @@
       turn_off:
         service: media_player.turn_off
         entity_id: media_player.mibox3
+        
+- platform: broadlink
+  host: !secret broadlink_ip
+  mac: !secret broadlink_mac
+  timeout: 15 
+  switches:
+    tv:
+      friendly_name: "TV"
+      command_on: 'JgBgAB8dHxs9HB8cHxsfOD4bHzgfHD0cHwALtB4dHh08HB8cHxweOTwdHjkeHD0cHwALtx4cHh08HR4cHh0eOTwdHjkeHD0cHgALtyAbHxw9HB8bHxwfOD0cHzgfGz4bHwANBQAAAAAAAAAA'
+      command_off: 'JgBgAB8dHxs9HB8cHxsfOD4bHzgfHD0cHwALtB4dHh08HB8cHxweOTwdHjkeHD0cHwALtx4cHh08HR4cHh0eOTwdHjkeHD0cHgALtyAbHxw9HB8bHxwfOD0cHzgfGz4bHwANBQAAAAAAAAAA'

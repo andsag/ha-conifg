@@ -4,3 +4,4 @@
       - sensor.dark_sky_apparent_temperature
       - sensor.dark_sky_precip_probability
       - switch.power_strip
+      - switch.tv
