@@ -13,6 +13,15 @@
 #  payload_available: "connected"
 #  payload_not_available: "disconnected"
 
+- platform: mqtt
+  name: "Aisle"
+  state_topic: "/sonoff/aisle/switch/state"
+  command_topic: "/sonoff/aisle/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  state_on: "on"
+  state_off: "off"
+
 #- platform: command_line
 #  switches:
 #    arest_pin_four:
