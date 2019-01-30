@@ -14,7 +14,7 @@
 #  payload_not_available: "disconnected"
 
 - platform: mqtt
-  name: "Aisle"
+  name: "Corridor Light"
   state_topic: "/sonoff/aisle/switch/state"
   command_topic: "/sonoff/aisle/switch/cmd"
   payload_on: "on"

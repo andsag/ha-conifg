@@ -1,0 +1,26 @@
+  - platform: rest
+    scan_interval: 3
+    resource: http://91.223.13.70/internetservice/services/passageInfo/stopPassages/stopPoint?stopPoint=10401
+    name: Miechowity
+    value_template: "{{ value_json['actual'][0]['patternText'] }} {{ value_json['actual'][0]['plannedTime'] }} {{ value_json['actual'][0]['actualTime'] }} {{ value_json['actual'][0]['status'] }}"
+    
+  - platform: template
+    sensors:
+      miechowity_line:
+        value_template: "{{ states.sensor.kkm.state.split(' ')[0] }}"
+      miechowity_status:
+        value_template: "{{ states.sensor.kkm.state.split(' ')[3] }}"
+        
+  - platform: template
+    sensors:
+      miechowity_status_new:
+        value_template: >-
+          {% if is_state('sensor.miechowity_status', 'PREDICTED') %}
+            GPS
+          {% elif is_state('sensor.miechowity_status', 'PLANNED') %}
+            N/A
+          {% elif is_state('sensor.miechowity_status', 'STOPPING') %}
+            STOP
+          {% else %}
+            failed
+          {% endif %}

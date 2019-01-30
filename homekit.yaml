@@ -5,3 +5,4 @@
       - sensor.dark_sky_precip_probability
       - switch.power_strip
       - switch.tv
+      - switch.corridor_light

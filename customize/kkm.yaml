@@ -1,0 +1,41 @@
+#sensor.kkm:
+#  hidden: true
+#sensor.kkm2:
+#  hidden: true
+sensor.kkm_status:
+  hidden: true
+sensor.kkm2_status:
+  hidden: true
+sensor.miechowity:
+  hidden: true
+sensor.miechowity_line:
+  hidden: true
+sensor.miechowity_status:
+  hidden: true
+sensor.miechowity_status_new:
+  hidden: true
+
+sensor.kkm_line:
+  friendly_name: 'Line'
+  icon: mdi:bus
+sensor.kkm_planned:
+  friendly_name: 'Planned'
+  icon: mdi:clock-outline
+sensor.kkm_expected:
+  friendly_name: 'Expected'
+  icon: mdi:clock-outline
+sensor.kkm_status_new:
+  friendly_name: 'Status'
+  icon: mdi:bus-articulated-end
+sensor.kkm2_line:
+  friendly_name: 'Line'
+  icon: mdi:bus
+sensor.kkm2_planned:
+  friendly_name: 'Planned'
+  icon: mdi:clock-outline
+sensor.kkm2_expected:
+  friendly_name: 'Expected'
+  icon: mdi:clock-outline
+sensor.kkm2_status_new:
+  friendly_name: 'Status'
+  icon: mdi:bus-articulated-end

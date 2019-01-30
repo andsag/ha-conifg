@@ -1,0 +1,9 @@
+###########################################
+# Buses Tab
+###########################################
+Bus:
+#  icon: mdi:auto-fix
+  view: yes
+  name: Bus
+  entities:
+    - group.buses

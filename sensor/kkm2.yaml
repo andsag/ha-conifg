@@ -1,0 +1,30 @@
+  - platform: rest
+    scan_interval: 5
+    resource: http://91.223.13.70/internetservice/services/passageInfo/stopPassages/stopPoint?stopPoint=12301
+    name: KKM2
+    value_template: "{{ value_json['actual'][1]['patternText'] }} {{ value_json['actual'][1]['plannedTime'] }} {{ value_json['actual'][1]['actualTime'] }} {{ value_json['actual'][1]['status'] }}"
+    
+  - platform: template
+    sensors:
+      kkm2_line:
+        value_template: "{{ states.sensor.kkm2.state.split(' ')[0] }}"
+      kkm2_planned:
+        value_template: "{{ states.sensor.kkm2.state.split(' ')[1] }}"
+      kkm2_expected:
+        value_template: "{{ states.sensor.kkm2.state.split(' ')[2] }}"
+      kkm2_status:
+        value_template: "{{ states.sensor.kkm2.state.split(' ')[3] }}"
+        
+  - platform: template
+    sensors:
+      kkm2_status_new:
+        value_template: >-
+          {% if is_state('sensor.kkm2_status', 'PREDICTED') %}
+            GPS
+          {% elif is_state('sensor.kkm2_status', 'PLANNED') %}
+            N/A
+          {% elif is_state('sensor.kkm2_status', 'STOPPING') %}
+            STOP
+          {% else %}
+            failed
+          {% endif %}

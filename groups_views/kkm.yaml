@@ -1,0 +1,11 @@
+Buses:
+  name: "Buses"
+  entities:
+    - sensor.kkm_line
+    - sensor.kkm_planned
+    - sensor.kkm_expected
+    - sensor.kkm_status_new
+    - sensor.kkm2_line
+    - sensor.kkm2_planned
+    - sensor.kkm2_expected
+    - sensor.kkm2_status_new

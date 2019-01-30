@@ -8,15 +8,25 @@
       data:
         message: "Witaj"
         
-  - alias: Pericp Warning
+  - alias: Autobusy
     trigger:
-      platform: numeric_state
-      entity_id: sensor.dark_sky_precip_probability
-      above: '20'
+      platform: state
+      entity_id: sensor.miechowity_status_new
+      to: 'STOP'
+#    condition:
+#    - condition: time
+#      after: '9:00:00'
+#      before: '10:00:00'
+#      weekday:
+#        - mon
+#        - tue
+#        - wed
+#        - thu
+#        - fri
     action:
       service: notify.ios_iphone_arcanus
       data:
-        message: "Be aware: {{ states('sensor.dark_sky_precip_probability') }} percent chance of {{ states('sensor.dark_sky_precip') }}"
+        message: "Autobus na przystanku"
  
   - alias: Turn on Listwa Morning
     trigger:

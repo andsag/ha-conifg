@@ -1,0 +1,9 @@
+###########################################
+# Airly Tab
+###########################################
+Pogoda:
+#  icon: mdi:auto-fix
+  view: yes
+  name: Pogoda
+  entities:
+    - group.airly
